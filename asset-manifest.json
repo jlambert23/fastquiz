@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/fastquiz/static/css/main.b530ae54.css",
+    "main.js": "/fastquiz/static/js/main.a1f61529.js",
+    "index.html": "/fastquiz/index.html",
+    "main.b530ae54.css.map": "/fastquiz/static/css/main.b530ae54.css.map",
+    "main.a1f61529.js.map": "/fastquiz/static/js/main.a1f61529.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b530ae54.css",
+    "static/js/main.a1f61529.js"
+  ]
+}
