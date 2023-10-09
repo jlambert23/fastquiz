@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 import {
   Button,
   Card,
@@ -7,8 +7,8 @@ import {
   MantineProvider,
   Stack,
   Title,
-} from '@mantine/core';
-import { decode } from 'html-entities';
+} from "@mantine/core";
+import { decode } from "html-entities";
 
 function App() {
   const [quiz, setQuiz] = useState();
@@ -20,7 +20,7 @@ function App() {
 
   const getQuiz = async () => {
     const { results } = await fetch(
-      'https://opentdb.com/api.php?amount=1'
+      "https://opentdb.com/api.php?amount=1",
     ).then((res) => res.json());
     const q = results[0];
     const i = Math.floor(Math.random() * 2);
@@ -47,42 +47,42 @@ function App() {
 
   return (
     <MantineProvider
-      theme={{ colorScheme: 'dark' }}
+      theme={{ colorScheme: "dark" }}
       withGlobalStyles
       withNormalizeCSS
     >
       <Container
         sx={{
-          height: '75%',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
+          height: "75%",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
         }}
       >
         <Card
           sx={(theme) => ({ backgroundColor: theme.colors.dark[6] })}
           shadow
         >
-          <Stack spacing='lg'>
-            <Title align='center'>{quiz?.question}</Title>
-            {result !== null && (
+          <Stack spacing="lg">
+            <Title align="center">{quiz?.question}</Title>
+            {result === null ? (
+              <Group position="center">
+                {quiz?.options.map((o) => (
+                  <Button key={o} size="xl" onClick={() => handleClick(o)}>
+                    {o}
+                  </Button>
+                ))}
+              </Group>
+            ) : (
               <Title
-                align='center'
+                align="center"
                 sx={(theme) => ({
                   color: result ? theme.colors.green[7] : theme.colors.red[7],
                 })}
               >
-                {result ? 'Correct!' : 'Wrong!'}
+                {result ? "Correct!" : "Wrong!"}
               </Title>
             )}
-            <Group position='center'>
-              {quiz &&
-                quiz.options.map((o) => (
-                  <Button key={o} size='xl' onClick={() => handleClick(o)}>
-                    {o}
-                  </Button>
-                ))}
-            </Group>
           </Stack>
         </Card>
       </Container>
