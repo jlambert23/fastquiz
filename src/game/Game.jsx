@@ -27,11 +27,13 @@ export const Game = () => {
     <Card sx={(theme) => ({ backgroundColor: theme.colors.dark[6] })} shadow>
       <Stack spacing="lg">
         <Title align="center">{quiz?.question}</Title>
-        {result === null ? (
-          <Options options={quiz?.options} onClick={handleClick} />
-        ) : (
-          <Result result={result} />
-        )}
+        <Stack justify="center" sx={() => ({ minHeight: "64px" })}>
+          {result === null ? (
+            <Options options={quiz?.options} onClick={handleClick} />
+          ) : (
+            <Result result={result} />
+          )}
+        </Stack>
       </Stack>
     </Card>
   );
